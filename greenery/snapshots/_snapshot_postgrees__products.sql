@@ -1,3 +1,5 @@
+{% snapshot inventory_snapshot %}
+
 {{
   config(
     target_database = dev.dev_db,
@@ -8,3 +10,6 @@
    )
 }}
 
+SELECT * FROM {{ source('postgres', 'inventory') }}
+
+{% endsnapshot %}
