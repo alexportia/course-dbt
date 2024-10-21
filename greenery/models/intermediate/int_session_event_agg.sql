@@ -1,5 +1,5 @@
 with events as (
-    SELECT * FROM {{ ref('stg_postgres__events') }}),
+    SELECT * FROM {{ ref('_stg_postgres__events') }}),
 
 intermediate_transformation as (
     SELECT
@@ -11,6 +11,7 @@ intermediate_transformation as (
         ,sum(case when event_type = 'page_view' then 1 end) as page_view_nr_events
         ,min(created_at_utc) as first_session_event_at_utc
         ,max(created_at_utc) as last_session_event_at_utc
+        ,datediff(hour, first_session_event_at_utc, last_session_event_at_utc) as length_session
     FROM events
     GROUP BY 1,2
 )
