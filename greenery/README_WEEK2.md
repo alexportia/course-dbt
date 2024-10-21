@@ -38,9 +38,8 @@ fact_page_views, fact_user_sessions
 
 
 ### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
+![<img width="904" alt="Screen Shot DAG" src="https://raw.githubusercontent.com/alexportia/course-dbt/refs/heads/main/greenery/image.png">
 
-![alt text](image.png)
-![<img width="904" alt="Screen Shot 2024-10-20 at 8 55 34 PM" src="https://github.com/user-attachments/assets/26a5146c-2d9c-4087-afa7-0c73618a3aa6">
 
 ## Part 2: Tests
 
@@ -52,14 +51,16 @@ I would try to add a test about certain expected values: for example, making sur
 
 
 ### Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
+No failure found - I only got back basic test for now.
 
 
 
 ### Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
-
+I would get alert for failing test.
 
 
 ## Part 3: dbt Snapshots
 
 ### Run the product snapshot model using dbt snapshot and query it in snowflake to see how the data has changed since last week
-
+Multiple products, for example:
+> **Monstera** which went from **77** to **50**
